@@ -1,16 +1,13 @@
 import React, { useReducer } from "react";
 import { Send } from "lucide-react";
 import emailjs from "emailjs-com";
-import "../css/contactform.css"; // Import the CSS file
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import "../css/contactform.css";
+import { useNavigate } from "react-router-dom";
 
-// Reducer function for form state management
-const formReducer = (state, action) => {
-  return {
-    ...state,
-    [action.name]: action.value,
-  };
-};
+const formReducer = (state, action) => ({
+  ...state,
+  [action.name]: action.value,
+});
 
 const ContactForm = () => {
   const navigate = useNavigate();
@@ -26,19 +23,16 @@ const ContactForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Call EmailJS to send the form data
     emailjs
       .sendForm(
-        "service_b83llpd", // Your EmailJS service ID
-        "template_fmx1sdq", // Your EmailJS template ID
-        e.target, // The form DOM element
-        "yDzVEkzzYohvFyZYn" // Your EmailJS user ID
+        "service_9p7xa8d", // ✅ Replace with your EmailJS service ID
+        "template_cub5659", // ✅ Replace with your EmailJS template ID
+        e.target, // ✅ Pass the form directly
+        "x_dE2D2eIJV5FfsHc" // ✅ Replace with your EmailJS public key
       )
       .then(
         (result) => {
-          
-
-          // Reset form data after successful submission
+          console.log("Email sent successfully:", result.text);
           dispatch({ name: "name", value: "" });
           dispatch({ name: "email", value: "" });
           dispatch({ name: "subject", value: "" });
@@ -53,10 +47,7 @@ const ContactForm = () => {
   };
 
   const handleChange = (e) => {
-    dispatch({
-      name: e.target.name,
-      value: e.target.value,
-    });
+    dispatch({ name: e.target.name, value: e.target.value });
   };
 
   return (

@@ -73,7 +73,7 @@ const AboutUs = () => {
             </Link>
             ,
             <Link
-              to="/services/sewage-drainage-line-blockage-remova"
+              to="/services/sewage-drainage-line-blockage-removal"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               drainage cleaning
