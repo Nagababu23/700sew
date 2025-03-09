@@ -11,8 +11,8 @@ const ContactInfo = () => {
         <Mail className="icon" />
         <div>
           <p>Mail:</p>
-          <a href="mailto:700cleaningservices@gmail.com">
-            700cleaningservices@gmail.com
+          <a href="mailto:services@700sewagecleaning.com">
+            services@700sewagecleaning.com
           </a>
         </div>
       </div>
