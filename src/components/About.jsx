@@ -56,8 +56,7 @@ const AboutUs = () => {
               700 Cleaning Services
             </Link>
           </b>
-        </p>
-        <p>
+        
           <b>700cleaningservices</b> provides
           <b>
             {" "}
@@ -95,8 +94,6 @@ const AboutUs = () => {
             </Link>
           </b>
           to prevent blockages and ensure smooth water flow.
-        </p>
-        <p>
           We also offer
           <b>
             <Link
@@ -123,8 +120,7 @@ const AboutUs = () => {
           for businesses. With a commitment to
           <b> quality, affordability, and customer satisfaction</b>, we
           guarantee a <b>quick response time and exceptional service</b>.
-        </p>
-        <p>
+        
           Choose <i>700cleaningservices</i> for
           <b>
             <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
