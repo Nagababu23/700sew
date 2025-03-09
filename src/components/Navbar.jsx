@@ -10,23 +10,26 @@ const Navbar = () => {
 
   const handleNavClick = (e, sectionId) => {
     e.preventDefault();
-    navigate(
-      `/${
-        sectionId !== "home_section"
-          ? sectionId
-              .replace("_section", "")
-              .replace("contact", "contact-us")
-              .replace("about", "about-us") // ✅ Fix for /about
-          : ""
-      }`
-    );
+    const path =
+      sectionId !== "home_section"
+        ? sectionId
+            .replace("_section", "")
+            .replace("contact", "contact-us")
+            .replace("about", "about-us")
+        : "";
+    
+    navigate(`/${path}`);
 
+    // Ensure scrolling happens after the component mounts
     setTimeout(() => {
-      document
-        .getElementById(sectionId)
-        ?.scrollIntoView({ behavior: "smooth" });
-    }, 300);
-    setMenuOpen(false);
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 500);
+
+    // Close the menu after navigation
+    setTimeout(() => setMenuOpen(false), 600);
   };
 
   const toggleMenu = () => {
@@ -50,32 +53,16 @@ const Navbar = () => {
           <img src={logo} alt="700seweagecleaning" />
         </Link>
         <div className={`menu ${menuOpen ? "active" : ""}`} ref={menuRef}>
-          <Link
-            to="/"
-            className="menu-item"
-            onClick={(e) => handleNavClick(e, "home_section")}
-          >
+          <Link to="/" className="menu-item" onClick={(e) => handleNavClick(e, "home_section")}>
             Home
           </Link>
-          <Link
-            to="/about-us"
-            className="menu-item"
-            onClick={(e) => handleNavClick(e, "about_section")}
-          >
+          <Link to="/about-us" className="menu-item" onClick={(e) => handleNavClick(e, "about_section")}>
             About Us
           </Link>
-          <Link
-            to="/services"
-            className="menu-item"
-            onClick={(e) => handleNavClick(e, "services_section")}
-          >
+          <Link to="/services" className="menu-item" onClick={(e) => handleNavClick(e, "services_section")}>
             Services
           </Link>
-          <Link
-            to="/contact-us"
-            className="menu-item"
-            onClick={(e) => handleNavClick(e, "contact")}
-          >
+          <Link to="/contact-us" className="menu-item" onClick={(e) => handleNavClick(e, "contact_section")}>
             Contact
           </Link>
           <a href="tel:++971555989664" className="contact">

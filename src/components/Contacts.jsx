@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import ContactInfo from "./ContactInfo";
 import ContactForm from "./ContactForm";
 import "../css/contacts.css"; // Import the CSS file
 
 const Contacts = () => {
+  useEffect(() => {
+    // Scroll to the contact section after navigation
+    const section = document.getElementById("contact_section");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
+
   return (
-    <div className="contact-page">
+    <div className="contact-page" id="contact_section">
       <Helmet>
         <title>Contact Us | 700 Cleaning Services UAE</title>
-        <meta charset="UTF-8" />
+        <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="title" content="Contact Us | 700 Cleaning Services UAE" />
         <meta
@@ -22,22 +30,13 @@ const Contacts = () => {
         />
         <meta name="author" content="700 Cleaning Services" />
         <meta name="robots" content="index, follow" />
-        <meta
-          property="og:title"
-          content="Contact Us | 700 Cleaning Services UAE"
-        />
+        <meta property="og:title" content="Contact Us | 700 Cleaning Services UAE" />
         <meta
           property="og:description"
           content="Need expert cleaning services? Contact 700 Cleaning Services for sewage, drainage, and septic tank cleaning in UAE. We're here to help!"
         />
-        <meta
-          property="og:image"
-          content="https://700sewagecleaningservices.com/images/contact-us-banner.png"
-        />
-        <meta
-          property="og:url"
-          content="https://700sewagecleaningservices.com/contact"
-        />
+        <meta property="og:image" content="https://700sewagecleaningservices.com/images/contact-us-banner.png" />
+        <meta property="og:url" content="https://700sewagecleaningservices.com/contact" />
         <meta property="og:type" content="website" />
       </Helmet>
 
