@@ -107,7 +107,7 @@ const AboutUs = () => {
               to="/services/pipeline-&-drain-line-cleaning"
               style={{ textDecoration: "none", color: "inherit" }}
             >
-              septic tank cleanin
+              septic tank cleaning
             </Link>
             , and
             <Link
