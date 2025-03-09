@@ -26,10 +26,10 @@ const Navbar = () => {
       if (section) {
         section.scrollIntoView({ behavior: "smooth" });
       }
-    }, 500);
+    }, 100); // Reduced delay
 
     // Close the menu after navigation
-    setTimeout(() => setMenuOpen(false), 600);
+    setMenuOpen(false);
   };
 
   const toggleMenu = () => {
