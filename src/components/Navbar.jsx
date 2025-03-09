@@ -1,37 +1,41 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../css/navbar.css";
 import logo from "../images/logo.jpg";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
-  const location = useLocation();
+  const navigate = useNavigate();
 
-  const handleNavClick = (e, path, sectionId) => {
-    e.preventDefault();
-    if (location.pathname !== path) {
-      window.location.href = path; // Force navigation to reload page
-    } else {
-      scrollToSection(sectionId);
+  const handleNavClick = (e, sectionId) => {
+  e.preventDefault();
+  const path =
+    sectionId !== "home_section"
+      ? sectionId
+          .replace("_section", "")
+          .replace("contact", "contact-us")
+          .replace("about", "about-us")
+      : "";
+
+  navigate(`/${path}`);
+
+  // Wait for navigation to complete before scrolling
+  setTimeout(() => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
     }
-    setMenuOpen(false);
-  };
+  }, 500); // Slight delay ensures section exists before scrolling
 
-  const scrollToSection = (sectionId) => {
-    setTimeout(() => {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }, 200);
-  };
+  // Delay menu close to prevent premature hiding
+  setTimeout(() => setMenuOpen(false), 600);
+};
 
-  useEffect(() => {
-    if (location.pathname === "/contact-us") {
-      scrollToSection("contact_section");
-    }
-  }, [location.pathname]);
+
+  const toggleMenu = () => {
+    setMenuOpen((prev) => !prev);
+  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -47,26 +51,42 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="container">
         <Link to="/" className="logo">
-          <img src={logo} alt="700sewagecleaning" />
+          <img src={logo} alt="700seweagecleaning" />
         </Link>
         <div className={`menu ${menuOpen ? "active" : ""}`} ref={menuRef}>
-          <Link to="/" className="menu-item" onClick={(e) => handleNavClick(e, "/", "home_section")}>
+          <Link
+            to="/"
+            className="menu-item"
+            onClick={(e) => handleNavClick(e, "home_section")}
+          >
             Home
           </Link>
-          <Link to="/about-us" className="menu-item" onClick={(e) => handleNavClick(e, "/about-us", "about_section")}>
+          <Link
+            to="/about-us"
+            className="menu-item"
+            onClick={(e) => handleNavClick(e, "about_section")}
+          >
             About Us
           </Link>
-          <Link to="/services" className="menu-item" onClick={(e) => handleNavClick(e, "/services", "services_section")}>
+          <Link
+            to="/services"
+            className="menu-item"
+            onClick={(e) => handleNavClick(e, "services_section")}
+          >
             Services
           </Link>
-          <Link to="/contact-us" className="menu-item" onClick={(e) => handleNavClick(e, "/contact-us", "contact_section")}>
+          <Link
+            to="/contact-us"
+            className="menu-item"
+            onClick={(e) => handleNavClick(e, "contact")}
+          >
             Contact
           </Link>
-          <a href="tel:+971555989664" className="contact">
+          <a href="tel:++971555989664" className="contact">
             Contact Us
           </a>
         </div>
-        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+        <button className="menu-toggle" onClick={toggleMenu}>
           ☰
         </button>
       </div>
