@@ -1,45 +1,37 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate, Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "../css/navbar.css";
 import logo from "../images/logo.jpg";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
-  const navigate = useNavigate();
   const location = useLocation();
 
+  const handleNavClick = (e, path, sectionId) => {
+    e.preventDefault();
+    if (location.pathname !== path) {
+      window.location.href = path; // Force navigation to reload page
+    } else {
+      scrollToSection(sectionId);
+    }
+    setMenuOpen(false);
+  };
+
+  const scrollToSection = (sectionId) => {
+    setTimeout(() => {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 200);
+  };
+
   useEffect(() => {
-    // Ensure Home is the default view on first load
-    if (location.pathname === "/") {
-      setTimeout(() => {
-        document.getElementById("home_section")?.scrollIntoView({ behavior: "smooth" });
-      }, 300);
+    if (location.pathname === "/contact-us") {
+      scrollToSection("contact_section");
     }
   }, [location.pathname]);
-
-  const handleNavClick = (e, sectionId) => {
-    e.preventDefault();
-
-    // Convert sectionId to a correct path
-    let path = "";
-    if (sectionId === "contact_section") path = "contact-us";
-    else if (sectionId === "about_section") path = "about-us";
-    else if (sectionId !== "home_section") path = sectionId.replace("_section", "");
-
-    navigate(`/${path}`);
-
-    // Delay scroll to ensure component has mounted
-    setTimeout(() => {
-      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
-    }, 300);
-
-    setMenuOpen(false); // Close menu after clicking
-  };
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -55,17 +47,28 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="container">
         <Link to="/" className="logo">
-          <img src={logo} alt="700 Cleaning Services" />
+          <img src={logo} alt="700sewagecleaning" />
         </Link>
         <div className={`menu ${menuOpen ? "active" : ""}`} ref={menuRef}>
-          <button className="menu-toggle close" onClick={() => setMenuOpen(false)}>✖</button>
-          <Link to="/" className="menu-item" onClick={(e) => handleNavClick(e, "home_section")}>Home</Link>
-          <Link to="/about-us" className="menu-item" onClick={(e) => handleNavClick(e, "about_section")}>About Us</Link>
-          <Link to="/services" className="menu-item" onClick={(e) => handleNavClick(e, "services_section")}>Services</Link>
-          <Link to="/contact-us" className="menu-item" onClick={(e) => handleNavClick(e, "contact_section")}>Contact</Link>
-          <a href="tel:+971555989664" className="contact">Contact Us</a>
+          <Link to="/" className="menu-item" onClick={(e) => handleNavClick(e, "/", "home_section")}>
+            Home
+          </Link>
+          <Link to="/about-us" className="menu-item" onClick={(e) => handleNavClick(e, "/about-us", "about_section")}>
+            About Us
+          </Link>
+          <Link to="/services" className="menu-item" onClick={(e) => handleNavClick(e, "/services", "services_section")}>
+            Services
+          </Link>
+          <Link to="/contact-us" className="menu-item" onClick={(e) => handleNavClick(e, "/contact-us", "contact_section")}>
+            Contact
+          </Link>
+          <a href="tel:+971555989664" className="contact">
+            Contact Us
+          </a>
         </div>
-        <button className="menu-toggle" onClick={toggleMenu}>☰</button>
+        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+          ☰
+        </button>
       </div>
     </nav>
   );
