@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar";
 import Homesec from "../components/Homesec";
 import About from "../components/About";
 import Working from "../components/Working";
