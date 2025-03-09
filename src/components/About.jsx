@@ -1,137 +1,85 @@
-import React from "react";
-import { Helmet } from "react-helmet-async";
-import "../css/about.css";
-import about from "../images/about.png";
-import { Link } from "react-router-dom";
+import React, { useState, useRef } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import "../css/navbar.css";
+import logo from "../images/logo.jpg";
 
-const AboutUs = () => {
+const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+  const navigate = useNavigate();
+
+  // Handle navigation and scrolling
+  const handleNavClick = (e, sectionId) => {
+    e.preventDefault();
+
+    // Close the menu
+    setMenuOpen(false);
+
+    // Navigate to the correct path
+    const path = sectionId === "home_section" ? "/" : `/${sectionId.replace("_section", "")}`;
+    navigate(path);
+
+    // Scroll to the section after navigation
+    setTimeout(() => {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100); // Small delay to ensure the page has updated
+  };
+
+  // Toggle the mobile menu
+  const toggleMenu = () => {
+    setMenuOpen((prev) => !prev);
+  };
+
+  // Close the menu when clicking outside
+  const handleClickOutside = (e) => {
+    if (menuRef.current && !menuRef.current.contains(e.target)) {
+      setMenuOpen(false);
+    }
+  };
+
+  // Attach click outside listener
+  React.useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
-    <div className="about-us-container fadeInUp">
-      <Helmet>
-        <title>Sewage Cleaning Services in UAE | 700 Cleaning Services</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-          name="title"
-          content="Sewage Cleaning Services in UAE | 700 Cleaning Services"
-        />
-        <meta
-          name="description"
-          content="700 Cleaning Services offers professional sewage cleaning, drainage cleaning, septic tank cleaning, and water tank cleaning in the UAE. Trusted for efficiency, hygiene, and affordability."
-        />
-        <meta
-          name="keywords"
-          content="sewage cleaning services UAE, drainage cleaning, septic tank cleaning, water tank cleaning, pipe inspection, stormwater drain cleaning, commercial cleaning services, 700 Cleaning Services"
-        />
-        <meta name="author" content="700 Cleaning Services" />
-        <meta name="robots" content="index, follow" />
-        <meta
-          property="og:title"
-          content="Sewage Cleaning Services in UAE | 700 Cleaning Services"
-        />
-        <meta
-          property="og:description"
-          content="Get expert sewage and drainage cleaning services across UAE. Our professional team ensures hygienic, efficient, and cost-effective solutions for residential and commercial properties."
-        />
-        <meta
-          property="og:image"
-          content="https://700sewagecleaningservices.com/images/about.png"
-        />
-        <meta
-          property="og:url"
-          content="https://700sewagecleaningservices.com"
-        />
-        <meta property="og:type" content="website" />
-      </Helmet>
-      <div className="about-us-left">
-        <div className="image-wrapper">
-          <img src={about} alt="About Us" className="about-us-image" />
+    <nav className="navbar">
+      <div className="container">
+        {/* Logo */}
+        <Link to="/" className="logo">
+          <img src={logo} alt="700seweagecleaning" />
+        </Link>
+
+        {/* Menu Items */}
+        <div className={`menu ${menuOpen ? "active" : ""}`} ref={menuRef}>
+          <Link to="/" className="menu-item" onClick={(e) => handleNavClick(e, "home_section")}>
+            Home
+          </Link>
+          <Link to="/about" className="menu-item" onClick={(e) => handleNavClick(e, "about_section")}>
+            About Us
+          </Link>
+          <Link to="/services" className="menu-item" onClick={(e) => handleNavClick(e, "services_section")}>
+            Services
+          </Link>
+          <Link to="/contact" className="menu-item" onClick={(e) => handleNavClick(e, "contact_section")}>
+            Contact
+          </Link>
+          <a href="tel:++971555989664" className="contact">
+            Call Us
+          </a>
         </div>
+
+        {/* Mobile Menu Toggle Button */}
+        <button className="menu-toggle" onClick={toggleMenu}>
+          ☰
+        </button>
       </div>
-      <div className="about-us-right">
-        <h2>ABOUT OUR SERVICES</h2>
-        <p>
-          <b>
-            Sewage Cleaning Services in UAE –
-            <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
-              700 Cleaning Services
-            </Link>
-          </b>
-        
-          <b>700cleaningservices</b> provides
-          <b>
-            {" "}
-            efficient, hygienic, and cost-effective sewage cleaning solutions
-          </b>
-          for both <i>residential</i> and <i>commercial properties</i> across
-          the UAE. Our expert team specializes in
-          <b>
-            <Link
-              to="/services/sewage-tank-cleaning"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              sewage cleaning
-            </Link>
-            ,
-            <Link
-              to="/services/sewage-drainage-line-blockage-removal"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              drainage cleaning
-            </Link>
-            ,
-            <Link
-              to="/services/pipeline-&-drain-line-cleaning"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              pipe inspection
-            </Link>
-            , and
-            <Link
-              to="/services"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              stormwater drain cleaning
-            </Link>
-          </b>
-          to prevent blockages and ensure smooth water flow.
-          We also offer
-          <b>
-            <Link
-              to="/services/water-tank-cleaning"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              water tank cleaning
-            </Link>
-            ,
-            <Link
-              to="/services/pipeline-&-drain-line-cleaning"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              septic tank cleaning
-            </Link>
-            , and
-            <Link
-              to="/services/pipeline-&-drain-line-cleaning"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              commercial cleaning services
-            </Link>
-          </b>
-          for businesses. With a commitment to
-          <b> quality, affordability, and customer satisfaction</b>, we
-          guarantee a <b>quick response time and exceptional service</b>.
-        
-          Choose <i>700cleaningservices</i> for
-          <b>
-            <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
-              professional sewage and drainage cleaning services in UAE
-            </Link>
-          </b>
-          —where cleanliness meets excellence!
-        </p>
-      </div>
-    </div>
+    </nav>
   );
 };
 
-export default AboutUs;
+export default Navbar;
