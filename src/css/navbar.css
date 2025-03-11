@@ -3,12 +3,13 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
 }
+
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Use with caution */
 }
 
 * {
@@ -18,14 +19,14 @@ html, body {
 }
 
 .navbar {
-  background-color: #1053D4; /* Semi-transparent background for better visibility */
+  background-color: #1053D4;
   color: #ffffff;
   padding: 10px 20px;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
-  transition: background-color 0.3s ease; /* Smooth background color transition */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
 }
 
 .container {
@@ -43,9 +44,11 @@ html, body {
   color: #ffffff;
   text-decoration: none;
 }
-.logo img{
+
+.logo img {
   width: 65px;
 }
+
 .menu {
   display: flex;
   gap: 20px;
@@ -60,7 +63,12 @@ html, body {
   font-weight: bold;
   transition: background-color 0.3s, color 0.3s;
 }
-.contact{
+
+.menu-item:hover {
+  color: #ffffff;
+}
+
+.contact {
   color: black;
   text-decoration: none;
   font-size: 17px;
@@ -71,8 +79,9 @@ html, body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-.menu-item:hover {
-  color: #ffffff;
+.contact:hover {
+  background-color: #b8d84f;
+  color: #000000;
 }
 
 /* Active Menu Styles */
@@ -88,9 +97,13 @@ html, body {
   color: #ffffff;
   font-size: 24px;
   cursor: pointer;
+  padding: 10px;
 }
 
-/* Responsive Design */
+.menu-toggle:focus {
+  outline: none;
+}
+
 /* Responsive Design */
 @media screen and (max-width: 768px) {
   .menu {
@@ -98,15 +111,20 @@ html, body {
     flex-direction: column;
     background-color: rgba(49, 68, 84, 0.95);
     position: absolute;
-    top: 60px;
-    right: 20px;
-    width: 200px;
-    border-radius: 5px;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    border-radius: 0;
     overflow: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(-10px);
   }
 
   .menu.active {
     display: flex;
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .menu-item {
@@ -114,14 +132,16 @@ html, body {
     text-align: center;
   }
 
+  .contact {
+    font-size: 16px;
+    padding: 10px;
+    background-color: #CAEE5A;
+    text-align: center;
+    width: 100%;
+    margin: 10px 0;
+  }
+
   .menu-toggle {
     display: block;
   }
-  .contact {
-    font-size: 16px; /* Smaller font size for better fitting */
-    padding: 10px 15px; /* Adjusted padding for smaller screens */
-    background-color: #CAEE5A; 
-    text-align: center;
-  }
-
 }
