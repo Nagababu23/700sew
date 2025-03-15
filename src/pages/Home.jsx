@@ -52,7 +52,7 @@ const Home = () => {
       <section id="home_section">
         <Homesec />
       </section>
-      <section id="about_section">
+      <section >
         <About />
       </section>
       <Working />

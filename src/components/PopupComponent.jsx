@@ -19,7 +19,7 @@ const FAQItem = ({ question, answer }) => {
       <button
         style={{
           width: "100%",
-          padding: "16px 8px",
+          padding: "16px 16px",
           display: "flex",
           justifyContent: "space-between",
           backgroundColor: "transparent",

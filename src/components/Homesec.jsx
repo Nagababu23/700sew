@@ -3,7 +3,7 @@ import "../css/homesec.css"; // Ensure you have the CSS for styling
 
 function App() {
   return (
-    <div className="hero-container">
+    <div className="hero-container" id="/">
       {/* Background Video */}
       <video className="background-video" autoPlay muted loop>
         <source src="../videos/MainVideo.mp4" type="video/mp4" />

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   return (
-    <div className="about-us-container fadeInUp">
+    <div className="about-us-container fadeInUp" id="about_section">
       <Helmet>
         <title>Sewage Cleaning Services in UAE | 700 Cleaning Services</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

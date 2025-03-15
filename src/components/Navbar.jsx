@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../css/navbar.css";
 import logo from "../images/logo.jpg";
 
@@ -14,14 +14,11 @@ const Navbar = () => {
       sectionId !== "home_section"
         ? sectionId
             .replace("_section", "")
-            .replace("contact", "contact-us")
+            .replace("contact", "contact")
             .replace("about", "about-us")
         : "";
 
-    // Navigate to the path and pass the sectionId as state
     navigate(`/${path}`, { state: { sectionId } });
-
-    // Close the menu after navigation
     setMenuOpen(false);
   };
 
@@ -42,23 +39,23 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="container">
-        <Link to="/" className="logo">
+        <a href="/" className="logo">
           <img src={logo} alt="700seweagecleaning" />
-        </Link>
+        </a>
         <div className={`menu ${menuOpen ? "active" : ""}`} ref={menuRef}>
-          <Link to="/" className="menu-item" onClick={(e) => handleNavClick(e, "home_section")}>
+          <a href="/" className="menu-item">
             Home
-          </Link>
-          <Link to="/about-us" className="menu-item" onClick={(e) => handleNavClick(e, "about_section")}>
+          </a>
+          <a href="/about-us" className="menu-item" onClick={(e) => handleNavClick(e, "about_section")}>
             About Us
-          </Link>
-          <Link to="/services" className="menu-item" onClick={(e) => handleNavClick(e, "services_section")}>
+          </a>
+          <a href="/services" className="menu-item" onClick={(e) => handleNavClick(e, "services_section")}>
             Services
-          </Link>
-          <Link to="/contact-us" className="menu-item" onClick={(e) => handleNavClick(e, "contact_section")}>
+          </a>
+          <a href="/contact" className="menu-item" onClick={(e) => handleNavClick(e, "contact_section")}>
             Contact
-          </Link>
-          <a href="tel:++971555989664" className="contact">
+          </a>
+          <a href="tel:+971555989664" className="contact">
             Contact Us
           </a>
         </div>
