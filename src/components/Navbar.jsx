@@ -55,6 +55,10 @@ const Navbar = () => {
           <a href="/contact" className="menu-item" onClick={(e) => handleNavClick(e, "contact_section")}>
             Contact
           </a>
+          </a>
+          <a href="/blog" className="menu-item">
+  Blogs
+</a>
           <a href="tel:+971555989664" className="contact">
             Contact Us
           </a>
