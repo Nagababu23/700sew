@@ -19,7 +19,7 @@ function App() {
               <Route path="/contact" element={<Contactsec />} />
               <Route path="/services/:serviceName" element={<Home section="services_section" />} />
               <Route path="/thank-you" element={<ThankYou />} />
-  <Route path="/blog/*" element={<div />} />
+  <Route path="/blog/*" element={<></>} />
             </Routes>
           </main>
         </div>
