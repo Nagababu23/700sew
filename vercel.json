@@ -1,0 +1,12 @@
+{
+    "rewrites": [
+      {
+        "source": "/blog",
+        "destination": "https://blogsnext-ebon.vercel.app/blog"
+      },
+      {
+        "source": "/blog/:slug*",
+        "destination": "https://blogsnext-ebon.vercel.app/blog/:slug*"
+      }
+    ]
+  }
