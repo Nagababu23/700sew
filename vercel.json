@@ -7,6 +7,10 @@
       {
         "source": "/blog/:slug*",
         "destination": "https://blogsnext-ebon.vercel.app/blog/:slug*"
-      }
+      },
+      {
+      "source": "/_next/static/:path*",
+      "destination": "https://blogsnext-ebon.vercel.app/_next/static/:path*"
+    }
     ]
   }
