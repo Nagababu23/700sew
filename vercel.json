@@ -2,15 +2,15 @@
     "rewrites": [
       {
         "source": "/blog",
-        "destination": "https://blogsnext-ebon.vercel.app/blog"
+        "destination": "https://blogs-sand-two.vercel.app/blog"
       },
       {
         "source": "/blog/:slug*",
-        "destination": "https://blogsnext-ebon.vercel.app/blog/:slug*"
+        "destination": "https://blogs-sand-two.vercel.app/blog/:slug*"
       },
       {
       "source": "/_next/static/:path*",
-      "destination": "https://blogsnext-ebon.vercel.app/_next/static/:path*"
+      "destination": "https://blogs-sand-two.vercel.app/_next/static/:path*"
     }
     ]
   }
