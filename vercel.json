@@ -11,6 +11,10 @@
       {
       "source": "/_next/static/:path*",
       "destination": "https://blogs-sand-two.vercel.app/_next/static/:path*"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "https://blogs-sand-two.vercel.app/sitemap.xml"
     }
     ]
-  }
+}
