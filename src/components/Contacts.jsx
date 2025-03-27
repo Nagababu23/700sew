@@ -22,7 +22,7 @@ const Contacts = () => {
         <meta name="title" content="Contact Us | 700 Cleaning Services UAE" />
         <meta
           name="description"
-          content="Get in touch with 700 Cleaning Services for professional sewage, drainage, and water tank cleaning in UAE. Contact us today for a free consultation."
+          content="Get in touch with 700 Cleaning Services for professional sewage, drainage, and sewage tank cleaning in UAE. Contact us today for a free consultation."
         />
         <meta
           name="keywords"

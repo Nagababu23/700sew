@@ -1,4 +1,4 @@
-import React,{Component} from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import Contacts from "./Contacts";
 import Footer from "./Footer";
