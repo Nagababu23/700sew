@@ -15,7 +15,7 @@ const metaTags = {
     keywords:
       "cleaning services UAE, sewage cleaning UAE, drainage cleaning, septic tank cleaning, water tank cleaning, pipeline cleaning, professional cleaning, 700 Cleaning Services",
     image: "https://700sewagecleaningservices.com/images/Contactcard1.jpg",
-    url: "https://700sewagecleaningservices.com",
+    url: "https://www.700sewagecleaning.com",
   },
   "/about-us": {
     title: "Sewage Cleaning Services in UAE | 700 Cleaning Services",
@@ -24,7 +24,7 @@ const metaTags = {
     keywords:
       "sewage cleaning services UAE, drainage cleaning, septic tank cleaning, water tank cleaning, pipe inspection, stormwater drain cleaning, commercial cleaning services, 700 Cleaning Services",
     image: "https://700sewagecleaningservices.com/images/about.png",
-    url: "https://700sewagecleaningservices.com/about-us",
+    url: "https://www.700sewagecleaning.com/about-us",
   },
   "/services": {
     title: "Top Cleaning Services | Home & Office Cleaning Experts",
@@ -33,7 +33,7 @@ const metaTags = {
     keywords:
       "cleaning services, sewage cleaning, deep cleaning, professional cleaning, home cleaning, best cleaning service",
     image: "https://www.700cleaningservices.com/images/Contactcard1.jpg",
-    url: "https://www.700cleaningservices.com/services",
+    url: "https://www.700sewagecleaning.com/services",
   },
   "/contact": {
     title: "Contact Us | 700 Cleaning Services UAE",
@@ -42,7 +42,7 @@ const metaTags = {
     keywords:
       "contact 700 Cleaning Services, cleaning services UAE, sewage cleaning inquiry, drainage cleaning support, water tank cleaning, professional cleaning consultation",
     image: "https://700sewagecleaningservices.com/images/Contactcard1.jpg",
-    url: "https://700sewagecleaningservices.com/contact",
+    url: "https://www.700sewagecleaning.com/contact",
   },
 };
 
@@ -55,7 +55,7 @@ const serviceMetaTags = {
       "sewage tank cleaning UAE, sewage cleaning services, tank disinfection, septic tank maintenance, professional cleaning, hygiene solutions, drainage cleaning",
     image:
       "https://700sewagecleaningservices.com/images/SewageCleaningServices.png",
-    url: "https://700sewagecleaningservices.com/services/sewage-tank-cleaning",
+    url: "https://www.700sewagecleaning.com/services/sewage-tank-cleaning",
   },
   "sewage-drainage-line-blockage-removal": {
     title: "Sewage Drainage Line Blockage Removal | 700 Cleaning Services",
@@ -65,7 +65,7 @@ const serviceMetaTags = {
       "drainage cleaning UAE, sewage blockage removal, drain unclogging, pipeline cleaning, sewer maintenance, emergency drain cleaning, sewage solutions",
     image:
       "https://700sewagecleaningservices.com/images/SewageDrainageLineBlockageRemoval.jpg",
-    url: "https://700sewagecleaningservices.com/services/sewage-drainage-line-blockage-removal",
+    url: "https://www.700sewagecleaning.com/services/sewage-drainage-line-blockage-removal",
   },
   "oil-tank-cleaning": {
     title: "Oil Tank Cleaning | Professional Cleaning Services UAE",
@@ -74,7 +74,7 @@ const serviceMetaTags = {
     keywords:
       "oil tank cleaning UAE, industrial tank cleaning, fuel tank maintenance, petroleum tank cleaning, sludge removal, tank hygiene, oil residue cleaning",
     image: "https://700sewagecleaningservices.com/images/OilTankCleaning.jpg",
-    url: "https://700sewagecleaningservices.com/services/oil-tank-cleaning",
+    url: "https://www.700sewagecleaning.com/services/oil-tank-cleaning",
   },
   "water-tank-cleaning": {
     title: "Water Tank Cleaning | 700 Cleaning Services UAE",
@@ -83,7 +83,7 @@ const serviceMetaTags = {
     keywords:
       "water tank cleaning UAE, drinking water tank hygiene, tank disinfection, algae removal, water purification, residential tank cleaning, commercial water storage cleaning",
     image: "https://700sewagecleaningservices.com/images/WaterTankCleaning.jpg",
-    url: "https://700sewagecleaningservices.com/services/water-tank-cleaning",
+    url: "https://www.700sewagecleaning.com/services/water-tank-cleaning",
   },
   "pipeline-&-drain-line-cleaning": {
     title: "Pipeline & Drain Line Cleaning | UAE Cleaning Experts",
@@ -92,7 +92,7 @@ const serviceMetaTags = {
     keywords:
       "pipeline cleaning UAE, drain cleaning services, pipe maintenance, clogged drain solutions, plumbing cleaning, industrial pipe cleaning, wastewater pipe cleaning",
     image: "https://700sewagecleaningservices.com/images/PipeLineCleaning.jpg",
-    url: "https://700sewagecleaningservices.com/services/pipeline-&-drain-line-cleaning",
+    url: "https://www.700sewagecleaning.com/services/pipeline-&-drain-line-cleaning",
   },
 };
 
@@ -105,7 +105,6 @@ const MetaTags = ({ page }) => {
       <meta name="keywords" content={meta.keywords} />
       <meta property="og:title" content={meta.title} />
       <meta property="og:description" content={meta.description} />
-      <meta property="og:image" content={meta.image} />
       <meta property="og:url" content={meta.url} />
       <meta property="og:type" content="website" />
        <link rel="canonical" href={meta.url} />
