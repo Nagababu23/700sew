@@ -108,6 +108,7 @@ const MetaTags = ({ page }) => {
       <meta property="og:image" content={meta.image} />
       <meta property="og:url" content={meta.url} />
       <meta property="og:type" content="website" />
+       <link rel="canonical" href={meta.url} />
     </Helmet>
   );
 };
