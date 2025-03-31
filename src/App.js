@@ -123,9 +123,9 @@ const ServiceMetaTags = () => {
       <meta property="og:title" content={meta.title} />
       <meta name="keywords" content={meta.keywords} />
       <meta property="og:description" content={meta.description} />
-      <meta property="og:image" content={meta.image} />
       <meta property="og:url" content={meta.url} />
       <meta property="og:type" content="website" />
+     <link rel="canonical" href={meta.url} />
     </Helmet>
   );
 };
