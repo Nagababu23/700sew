@@ -95,6 +95,15 @@ const Footer = () => {
           >
             Nagababu
           </a>
+           ,
+          <a
+            href="https://www.linkedin.com/in/harikeshatmakuru/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            Harikesh
+          </a>
         </p>
         <div className="footer-links">
           <a href="#terms">Term of use</a>
